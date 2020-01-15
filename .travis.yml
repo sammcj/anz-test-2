@@ -1,4 +1,6 @@
-language: generic
+language: node_js
+node_js:
+  - 12
 
 sudo: required
 services:
@@ -6,6 +8,10 @@ services:
 
 jobs:
   include:
+    - stage: test
+      script:
+        - npm install
+        - npm test
     - stage: build docker image
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

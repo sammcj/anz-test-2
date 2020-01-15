@@ -56,7 +56,7 @@ To use the provided Makefile the following are required:
 - `docker`
 - `git`
 
-And if you want to run the tests you'll need:
+And if you want to run the tests manually you'll need:
 
 - `nodejs`
 - Run `npm install` to install requirements
@@ -159,5 +159,4 @@ I had very limited time to learn and build this, here is an initial list of thin
 
 #### Extend tests
 
-- I ran out of time while writing the tests - at present the test suite is manually run and is not yet run during the Docker build.
 - While a simple Mocha Chai test is implemented to check that the API is returning a 200 when hit and that the JSON is valid, additional test cases could be added be added.
