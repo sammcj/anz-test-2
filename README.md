@@ -135,6 +135,8 @@ I had very limited time to learn and build this, here a list of things that coul
 
 I would need to do some more reading on what the minimal JS components to run the app are, from there it would be worth splitting it out into a multi-stage Dockerfile and only build in said files to the final image.
 
+I did try the `-slim` node images, however there were issues and didn't have time to explore them further.
+
 #### Better tests
 
 - Unit tests with good code coverage.
