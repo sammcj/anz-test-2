@@ -40,6 +40,9 @@ run: ## Run container on port configured in `config.env`
 stop: ## Stop and remove a running container
 	docker stop $(APP_NAME); docker rm $(APP_NAME)
 
+tests: ## Run npm test suite manually
+	npm test
+
 release: build-nc publish ## Make a release by building and publishing the `{version}` ans `latest` tagged containers to the container repo
 
 # Docker publish
