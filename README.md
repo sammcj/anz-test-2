@@ -9,7 +9,7 @@ A minimal API built with Express JS and run with Docker that exposes a HTTP API 
 
 # Background Information:
 
-- I'm come from a Platform Operations and Automation (Puppet) background to Platform Engineering.
+- I'm coming from a Platform Operations and Automation (Puppet) background to Platform Engineering.
 - This is testing web development skills and as such is not in my area of expertise.
 - As requested I've written the application in Javascript, however this is my first attempt with the language and with web development.
 
@@ -46,6 +46,8 @@ Travis:
 - Builds the application-in Docker
 - Runs some basic tests
 - Deploys the docker image to [Docker Hub](https://hub.docker.com/repository/docker/sammcj/anz-test-2/)
+
+If you wish to run builds against your own Travis instance, you'll need to set the `DOCKER_USERNAME` and `DOCKER_PASSWORD` variables in the Travis UI.
 
 ### Requirements
 
@@ -156,7 +158,28 @@ I had very limited time to learn and build this, here is an initial list of thin
 - I would need to do some more reading on what the minimal JS components to run the app are.
 - It would be worth splitting it out into a multi-stage Dockerfile and run tests in the first image and from there only build with `--only=production` and the files to the final image.
 - I did try the `-slim` node images, however there were issues and didn't have time to explore them further but this could be done.
+- [This post](https://antonfisher.com/posts/2018/03/19/reducing-docker-image-size-of-a-node-js-application/) looks like a good starting point.
 
 #### Extend tests
 
-- While a simple Mocha Chai test is implemented to check that the API is returning a 200 when hit and that the JSON is valid, additional test cases could be added be added.
+- While a simple Mocha Chai test is implemented to check that the API is returning a 200 when hit and that the JSON is valid, additional test cases could be added.
+
+
+#### Improve handling of secrets
+
+- At present the Travis build script logs into Docker Hub using secrets provided to the platform, this does temporarily store the access token within the build which is not ideal, this could be changed to use a more restrictive solution, perhaps even with a rotating one-time token.
+
+#### Use GCP
+
+- Travis is quite a traditional CI product, using something like GCP Cloud Run would be a simpler and more streamlined solution.
+
+## Reference Material
+
+- https://expressjs.com/en/starter/hello-world.html
+- https://dev.to/easybuoy/testing-node-api-with-mocha-chai-248b
+- https://rahmanfadhil.com/test-express-with-supertest/#getting-started
+- https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+- https://docs.travis-ci.com/user/build-stages/
+- https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/
+- https://docs.docker.com/develop/develop-images/multistage-build/
+- https://medium.com/@exustash/three-good-practices-for-better-ci-cd-makefiles-5b93452e4cc3
