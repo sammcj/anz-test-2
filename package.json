@@ -1,0 +1,24 @@
+{
+  "name": "node_api_example",
+  "version": "1.0.0",
+  "description": "Simple node API example app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever .",
+    "start-dev": "export NODE_ENV=DEV && nodemon .",
+    "lint": "./node_modules/eslint/bin/eslint.js ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forever": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "nodemon": "^2.0.2"
+  }
+}

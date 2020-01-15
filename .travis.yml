@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+ 
+before_install:
+ - docker build -t sammcj/anz-test-2 -f Dockerfile .
+ 
+script:
+ - docker run -e CI=true sammcj/anz-test-2 npm test
