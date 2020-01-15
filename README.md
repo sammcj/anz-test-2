@@ -137,8 +137,6 @@ I would need to do some more reading on what the minimal JS components to run th
 
 I did try the `-slim` node images, however there were issues and didn't have time to explore them further.
 
-#### Better tests
+#### Fix tests
 
-- Unit tests with good code coverage.
-- Functional tests against the API.
-- Load testing.
+I started to read up on how Mocha and Chai testing works for but ran out of time while implementing the tests.
