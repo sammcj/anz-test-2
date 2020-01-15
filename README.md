@@ -1,6 +1,7 @@
 # ANZx Test 2
 
-[![Build Status](https://travis-ci.org/sammcj/anz-test-2.svg?branch=master)](https://travis-ci.org/sammcj/anz-test-2)
+[![Build Status](https://travis-ci.org/sammcj/anz-test-2.svg?branch=master)](https://travis-ci.org/sammcj/anz-test-2) [![codebeat badge](https://codebeat.co/badges/10c14261-e2e7-450e-ac79-ea5d8e83b155)](https://codebeat.co/projects/github-com-sammcj-anz-test-2-master)
+
 
 [Docker Hub](https://hub.docker.com/repository/docker/sammcj/anz-test-2/tags?page=1).
 
