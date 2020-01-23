@@ -148,6 +148,12 @@ A basic Kuberentes deployment manifest can be found under [kubernetes/api-deploy
 - I have integrated [WhiteSource Bolt](https://bolt.whitesourcesoftware.com/github/) to scan this code repository for potential security problems which will automatically created as [issues](https://github.com/sammcj/anz-test-2/issues) when detected.
 - GitHub Security scanning is enabled on this repo, it is scanning the dependencies for vulnerable package versions.
 - For the purpose of demonstrating that the integrated automated security scanning as working, I have left potential problems that have been detected under [issues](https://github.com/sammcj/anz-test-2/issues).
+- Dependabot is monitoring Javascript dependencies.
+
+### Quality
+
+- Both CodeBeat and DeepScan are configured to scan and grade the code quality
+- Linting and basic tests are part of the CI pipeline
 
 ## Future Improvements
 
@@ -163,7 +169,7 @@ I had very limited time to learn and build this, here is an initial list of thin
 #### Extend tests
 
 - While a simple Mocha Chai test is implemented to check that the API is returning a 200 when hit and that the JSON is valid, additional test cases could be added.
-
+- Reduction in code quality could prevent a build from succeeding.
 
 #### Improve handling of secrets
 
@@ -183,3 +189,5 @@ I had very limited time to learn and build this, here is an initial list of thin
 - https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/
 - https://docs.docker.com/develop/develop-images/multistage-build/
 - https://medium.com/@exustash/three-good-practices-for-better-ci-cd-makefiles-5b93452e4cc3
+- https://deepscan.io/home/
+- https://bolt.whitesourcesoftware.com/
