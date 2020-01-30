@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "deep-equal": "^2.0.1",
     "express": "^4.17.1",
     "forever": "^2.0.0"
   },

@@ -152,8 +152,8 @@ A basic Kuberentes deployment manifest can be found under [kubernetes/api-deploy
 
 ### Quality
 
-- Both CodeBeat and DeepScan are configured to scan and grade the code quality
-- Linting and basic tests are part of the CI pipeline
+- Both CodeBeat and DeepScan are configured to scan and grade the code quality.
+- Linting and basic tests are part of the CI pipeline.
 
 ## Future Improvements
 
@@ -161,15 +161,14 @@ I had very limited time to learn and build this, here is an initial list of thin
 
 #### Reduction in Docker image size
 
-- I would need to do some more reading on what the minimal JS components to run the app are.
-- It would be worth splitting it out into a multi-stage Dockerfile and run tests in the first image and from there only build with `--only=production` and the files to the final image.
-- I did try the `-slim` node images, however there were issues and didn't have time to explore them further but this could be done.
+- I would need to do some more reading on what the minimal set of JS components required to run the app are, I'm not overly familiar with the JS ecosystem from a dev point of view.
 - [This post](https://antonfisher.com/posts/2018/03/19/reducing-docker-image-size-of-a-node-js-application/) looks like a good starting point.
 
 #### Extend tests
 
 - While a simple Mocha Chai test is implemented to check that the API is returning a 200 when hit and that the JSON is valid, additional test cases could be added.
-- Reduction in code quality could prevent a build from succeeding.
+- Reduction in code quality is reported on with CodeBeat and DeepScan, however the build could be configured to fail should quality drop.
+- Kubernetes manifests could be automatically linted and checked for security issues using something like kubesec.io.
 
 #### Improve handling of secrets
 
@@ -177,7 +176,7 @@ I had very limited time to learn and build this, here is an initial list of thin
 
 #### Use GCP
 
-- Travis is quite a traditional CI product, using something like GCP Cloud Run would be a simpler and more streamlined solution.
+- Travis is OK for basic CI/CD builds but using something like GCP's native tooling could make the full _CD_ process more streamlined, e.g. CloudBuild could be a good solution to then deploy the artefact as a stateless container using CloudRun.
 
 ## Reference Material
 
