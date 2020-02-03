@@ -15,29 +15,27 @@ spec:
       labels:
         app: anz-test-2
     spec:
-    containers:
-        - name: anz-test-2
-          image: sammcj/anz-test-2
-          ports:
-            - containerPort: 8000
-          resources:
-            requests:
-              memory: "512Mi"
-              cpu: "250m"
-            limits:
-              memory: "1024Mi"
-              cpu: "500m"
+      containers:
+          - name: anz-test-2
+            image: sammcj/anz-test-2
+            ports:
+              - containerPort: 8000
+            resources:
+              requests:
+                memory: "512Mi"
+                cpu: "250m"
+              limits:
+                memory: "1024Mi"
+                cpu: "500m"
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: anz-test-2-service
 spec:
   selector:
     app: anz-test-2
   ports:
-  - protocol: TCP
-    port: 8000
-    targetPort: 8000
-  type: NodePort
-
+    - port: 8000
+      targetPort: 8000
+  type: LoadBalancer
