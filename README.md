@@ -160,6 +160,10 @@ A basic Kuberentes deployment manifest can be found under [kubernetes/api-deploy
 - Both CodeBeat and DeepScan are configured to scan and grade the code quality.
 - Linting and basic tests are part of the CI pipeline.
 
+#### Example of SaaS tests
+
+![SaaS tests](https://user-images.githubusercontent.com/862951/73713981-7811fa80-4763-11ea-9951-8325c9b511ac.jpg)
+
 ## Future Improvements
 
 I had very limited time to learn and build this, here is an initial list of things that could be improved:
