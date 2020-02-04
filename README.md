@@ -10,7 +10,7 @@ A minimal API built with Express JS and run with Docker that exposes a HTTP API 
 # Background Information:
 
 - I'm coming from a Platform Operations and Automation (Puppet) background to Platform Engineering.
-- This is testing web development skills and as such is not in my area of expertise.
+- A portion of this exercise tested web development skills and as such is not in my area of expertise.
 - As requested I've written the application in Javascript, however this is my first attempt with the language and with web development.
 
 ---
@@ -28,7 +28,7 @@ Sending a GET request to http://localhost:8000/version should return similar to 
 ```json
 "myapplication": [
   {
-    "version": "1.0",
+    "version": "1.0.0",
     "lastcommitsha": "abc57858585",
     "description" : "pre-interview technical test"
   } ]
@@ -43,9 +43,10 @@ Application releases will comply with [Semantic Versioning 2.0.0](https://semver
 The Travis CI build is configured in `.travis.yml`
 
 Travis:
-- Builds the application-in Docker
-- Runs some basic tests
-- Deploys the docker image to [Docker Hub](https://hub.docker.com/repository/docker/sammcj/anz-test-2/)
+- Writes the current git rev SHA (short) to a file that is baked into the image.
+- Builds the application-in Docker.
+- Runs some basic tests.
+- Deploys the docker image to [Docker Hub](https://hub.docker.com/repository/docker/sammcj/anz-test-2/).
 
 If you wish to run builds against your own Travis instance, you'll need to set the `DOCKER_USERNAME` and `DOCKER_PASSWORD` variables in the Travis UI.
 
@@ -86,7 +87,11 @@ make run
 ```
 _Exposes an HTTP API at http://localhost:8000/version_
 
-### Manually Run Tests:
+### Test
+
+- Quality: CodeBeat and DeepScan SaaS running on GitHub against the repo.
+- Security: Whitesource Bolt and DependaBot SaaS running on GitHub against the repo.
+- Functional:
 
 ```
 make tests

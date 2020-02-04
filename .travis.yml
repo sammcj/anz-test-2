@@ -10,6 +10,7 @@ jobs:
   include:
     - stage: test
       script:
+        - rm -f git-rev && git rev-parse --short HEAD | tr -d '\n' > git-rev
         - npm install
         - npm test
     - stage: build docker image

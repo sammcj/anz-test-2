@@ -29,9 +29,13 @@ help: ## This help.
 # DOCKER TASKS
 # Build the container
 build: ## Build the container
+	rm -f git-rev
+	git rev-parse --short HEAD | tr -d '\n' > git-rev
 	docker build -t $(APP_NAME) .
 
 build-nc: ## Build the container without caching
+	rm -f git-rev
+	git rev-parse --short HEAD | tr -d '\n' > git-rev
 	docker build --no-cache -t $(APP_NAME) .
 
 run: ## Run container on port configured in `config.env`
@@ -40,7 +44,9 @@ run: ## Run container on port configured in `config.env`
 stop: ## Stop and remove a running container
 	docker stop $(APP_NAME); docker rm $(APP_NAME)
 
-tests: ## Run npm test suite manually
+tests: ## Run npm test suite
+	rm -f git-rev
+	git rev-parse --short HEAD | tr -d '\n' > git-rev
 	npm test
 
 release: build-nc publish ## Make a release by building and publishing the `{version}` ans `latest` tagged containers to the container repo
