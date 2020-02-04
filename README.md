@@ -5,7 +5,7 @@
 
 [Docker Hub](https://hub.docker.com/repository/docker/sammcj/anz-test-2/tags?page=1).
 
-A minimal API built with Express JS and run with Docker that exposes a HTTP API server.
+A minimal API built with Express JS and run with Docker (distroless/nodejs) that exposes a HTTP API server.
 
 # Background Information:
 
@@ -167,11 +167,6 @@ A basic Kuberentes deployment manifest can be found under [kubernetes/api-deploy
 ## Future Improvements
 
 I had very limited time to learn and build this, here is an initial list of things that could be improved:
-
-#### Reduction in Docker image size
-
-- I would need to do some more reading on what the minimal set of JS components required to run the app are, I'm not overly familiar with the JS ecosystem from a dev point of view.
-- [This post](https://antonfisher.com/posts/2018/03/19/reducing-docker-image-size-of-a-node-js-application/) looks like a good starting point.
 
 #### Extend tests
 

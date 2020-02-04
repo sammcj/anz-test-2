@@ -1,7 +1,6 @@
 #
 # ---- Base Node ----
 FROM node:12 as base
-
 WORKDIR '/usr/app'
 
 COPY package*.json index.js server.js git-rev ./
@@ -10,7 +9,6 @@ RUN npm set progress=false && npm config set depth 0
 #
 # ---- Test ----
 FROM base as test
-
 COPY . ./
 
 # Install all modules including dev dependancies
@@ -18,11 +16,17 @@ RUN npm install
 RUN npm run lint && npm run test
 
 #
-# ---- Release ----
-FROM base AS release
+# ---- Build ----
+FROM base AS build
+WORKDIR '/usr/app'
 
-# copy production node_modules
+# install production node_modules
 RUN npm install --only=production
 
+#
+# ---- Release ----
+FROM gcr.io/distroless/nodejs
+COPY --from=build /usr/app /
+
 EXPOSE 8000
-ENTRYPOINT ["npm", "start"]
+CMD ["index.js"]
