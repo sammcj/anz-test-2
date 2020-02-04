@@ -1,6 +1,6 @@
 {
   "name": "node_api_example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple node API example app",
   "main": "index.js",
   "scripts": {
