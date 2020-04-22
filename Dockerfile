@@ -1,6 +1,6 @@
 #
 # ---- Base Node ----
-FROM node:12 as base
+FROM node:14 as base
 WORKDIR '/usr/app'
 
 COPY package*.json index.js server.js git-rev ./
